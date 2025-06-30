@@ -54,7 +54,7 @@ const sendAsWebhook = async (channel, username, avatarURL, content) => {
 };
 
 client.on("messageCreate", async (message) => {
-  if (message.author.bot) return;
+  if (message.author.bot || message.webhookId) return;
 
   const sourceChannelID = message.channel.id;
   const sourceLang = channelLangMap[sourceChannelID];
